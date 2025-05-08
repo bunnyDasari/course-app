@@ -20,13 +20,14 @@ userRouter.post("/login", async (req, res) => {
         }, secKey)
         res.json({
             token: token,
-            time: new Date()
+            time: new Date(),
+            name: users.username
         }).status(200)
         console.log(jwt.verify(token, secKey))
     } else {
         res.json({
             msg: "Enter correct username and password"
-        })
+        }).status(404)
     }
 
 

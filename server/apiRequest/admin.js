@@ -41,12 +41,14 @@ adminRouter.post("/signup", async (req, res) => {
 
 adminRouter.post("/create-courses", checkAdminDetials, async (req, res) => {
     const createrId = req.userId
-    const { courseName, price, discription } = req.body
+    const { courseName, price, discription, image, duration } = req.body
     const courseData = await courseDetails.create({
         createrId: createrId,
         courseName: courseName,
         price: price,
-        discription: discription
+        discription: discription,
+        image: image,
+        duration: duration
     })
     console.log(createrId)
     res.json({ courseId: courseData._id })
@@ -76,12 +78,18 @@ adminRouter.delete("/delete-course", async (req, res) => {
     })
 })
 
-adminRouter.get("/", async (req, res) => {
-    const { createrId } = req.body
-    const courses = await courseDetails.find({ createrId })
+adminRouter.get("/", checkAdminDetials, async (req, res) => {
+    const userId = req.userId
+    console.log(userId)
+    const courses = await courseDetails.find({ createrId: userId })
+    console.log(courses)
     res.json({
         courses
     })
+})
+adminRouter.get("/bulk", async (req, res) => {
+    const courses = await courseDetails.find({})
+    res.json({ courses })
 })
 
 module.exports = {

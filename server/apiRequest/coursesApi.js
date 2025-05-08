@@ -15,21 +15,21 @@ useCourse.post("/get-course", userMiddleWare, async (req, res) => {
         courseId: courseId
     })
     res.json({
-        msg: "Get all the courses"
+        courseId 
     })
 })
 
 useCourse.get("/", userMiddleWare, async (req, res) => {
     const userId = req.userId
     console.log(userId)
-    const userfind = await userCourseDetails.findOne({ userId })
-    console.log(userfind.courseId)
-    const a = userfind.courseId
-    const userCourse = await courseDetails.find(a)
+    const userfind = await userCourseDetails.find({ userId })
+    const userCourse = await courseDetails.find({ _id: { $in: userfind.map(e => e.courseId) } })
     res.json({
         userfind,
         userCourse
     })
 })
+
+
 
 module.exports = { useCourse: useCourse }

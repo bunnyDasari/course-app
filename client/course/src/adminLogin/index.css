@@ -1,0 +1,131 @@
+.admin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+.admin-login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.admin-header p {
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-input-group label {
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.admin-input-group input,
+.admin-select {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background-color: white;
+}
+
+.admin-input-group input:focus,
+.admin-select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.admin-login-button {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.admin-login-button:hover {
+    background: #2980b9;
+}
+
+.admin-error {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.admin-signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.admin-signup-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.admin-signup-link a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .admin-login-box {
+        padding: 30px 20px;
+    }
+
+    .admin-header h1 {
+        font-size: 24px;
+    }
+}
